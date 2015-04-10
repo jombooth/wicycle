@@ -1,0 +1,23 @@
+10 April 2015
+
+Installed Raspbian.
+
+Was unable to set up RTL8192EU dongle. Seems possible to compile driver, but to do this one needs the Linux source code handy. Oh well.
+
+Installed HostApd via apt-get, then overwrote the executables with a version compiled locally. Checking source archive into repository.
+Installed dnsmasq via apt-get
+Installed lshw via apt-get (note lshw -C network useful)
+
+Checking in hostapd.conf
+Checking in driver for rtl8192
+
+Make sure hostapd valid: sudo hostapd -d /etc/hostapd/hostapd.conf
+Also delete wpa-roam line
+
+sudo service networking restart to ensure network config ok
+Note that by editing networking file one can change how wifi dongle behaves
+set to master mode with iwconfig wlan0 mode master
+
+Sources:
+http://sirlagz.net/2012/08/09/how-to-use-the-raspberry-pi-as-a-wireless-access-pointrouter-part-1/
+bogeskov.dk/UsbAccessPoint.html
