@@ -22,3 +22,15 @@ Sources:
 http://sirlagz.net/2012/08/09/how-to-use-the-raspberry-pi-as-a-wireless-access-pointrouter-part-1/
 bogeskov.dk/UsbAccessPoint.html
 sites.google.com/site/easylinuxtipsproject/reserve-7
+
+Apr 18 2015
+
+Installed apache & php. Edited /var/www to show that the php install works. 
+Installed wicd and wicd-cli
+
+Used iptables to route incoming web traffic to local apache install.
+sudo iptables -t nat -A PREROUTING -p tcp --dport 443 -j DNAT --to-destination 127.0.0.1:80
+sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination 127.0.0.1:80
+
+Then open up internal traffic flow to clients:
+sysctl -w net.ipv4.conf.wlan0.route_localnet=1
