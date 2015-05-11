@@ -15,7 +15,7 @@ $WGET -q --tries=10 --timeout=5 http://www.google.com -O /tmp/index.google &> /d
     if [ ! -s /tmp/index.google ];then
         echo "No internet - power cycling!";
         /home/pi/wicycle/scripts/statusBlink_BAD.py &
-        /home/pi/wicycle/scripts/powerCycle.py;
+        /home/pi/wicycle/scripts/powerCycle.py &
     else
         echo "Internet OK. Going back to sleep.";
         /home/pi/wicycle/scripts/statusBlink_OK.py &
