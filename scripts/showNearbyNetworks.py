@@ -21,7 +21,7 @@ def py_grep(buf, s):
 
 dev_null = open(os.devnull, 'w')
 
-networks_raw = subprocess.check_output(["iwlist", "scan"], stderr=dev_null)
+networks_raw = subprocess.check_output(["iwlist", "scan"], stderr=dev_null).split("wlan1")[0]
 networks_raw_list = networks_raw.split("Cell")[1:]
 
 networks_as_dicts = []
